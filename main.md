@@ -1,3 +1,5 @@
+### create address table with id and address as char.
+
 ```
 
 -- public.address definition
@@ -14,6 +16,8 @@ CREATE TABLE public.address (
 
 ```
 
+### create category table with product id nad category name
+
 ```
 -- public.category definition
 
@@ -29,6 +33,8 @@ CREATE INDEX category_c_name_idx ON public.category USING btree (c_name);
 
 ```
 
+### category_product joint table
+
 ```
 -- public.category_product definition
 
@@ -42,6 +48,8 @@ CREATE TABLE public.category_product (
 	CONSTRAINT category_product_pk PRIMARY KEY (id)
 );
 ```
+
+### Create order table with user and address details with price
 
 ```
 -- public."order" definition
@@ -58,6 +66,7 @@ CREATE TABLE public."order" (
 	CONSTRAINT orders_pk PRIMARY KEY (order_id)
 );
 ```
+### product table with product price name and description
 
 ```
 -- public.product definition
@@ -76,6 +85,7 @@ CREATE TABLE public.product (
 
 CREATE INDEX products_name_idx ON public.product USING btree (name);4
 ```
+### product order joint table 
 
 ```
 -- public.product_order definition
@@ -92,16 +102,9 @@ CREATE TABLE public.product_order (
 );
 
 ```
-
+### Creating User table
 ```
--- public.product_order foreign keys
-
-ALTER TABLE public.product_order ADD CONSTRAINT product_order_fk FOREIGN KEY (order_id) REFERENCES public."order"(order_id);
-ALTER TABLE public.product_order ADD CONSTRAINT product_order_fk_2 FOREIGN KEY (product_id) REFERENCES public.product(sku);
-
 -- public."user" definition
-
--- Drop table
 
 -- DROP TABLE public."user";
 
